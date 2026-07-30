@@ -3,8 +3,11 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import CarCard from "@/components/CarCard";
+import Reveal from "@/components/Reveal";
 import { cars } from "@/data/cars";
+import { cn } from "@/lib/utils";
 
 const categories = ["All", "Economy", "Sedan", "SUV", "Hatchback", "Hybrid"];
 
@@ -20,40 +23,48 @@ export default function FleetPage() {
     <main>
       <Navbar />
 
-      <section className="bg-navy py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-white sm:text-4xl">
-            Cars Available for Rent in Karachi
-          </h1>
-          <p className="mt-4 text-gray-400 max-w-2xl">
-            Browse our complete fleet of rental vehicles in Karachi. From fuel
-            efficient hatchbacks to powerful SUVs, we have the right car for every
-            trip and budget.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Our Fleet"
+        title="Cars available for rent in Karachi"
+        subtitle="Browse our complete fleet of rental vehicles. From fuel efficient hatchbacks to powerful SUVs, we have the right car for every trip and budget."
+      />
 
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="bg-white py-14 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap gap-2 mb-8">
+          <div
+            className="flex flex-wrap gap-2"
+            role="tablist"
+            aria-label="Filter fleet by category"
+          >
             {categories.map((cat) => (
               <button
                 key={cat}
+                role="tab"
+                aria-selected={activeCategory === cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`rounded-full px-5 py-2 text-sm font-medium transition-all ${
+                className={cn(
+                  "rounded-full px-5 py-2.5 text-sm font-semibold transition-all",
                   activeCategory === cat
-                    ? "bg-amber text-navy shadow-md"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
+                    ? "bg-navy-900 text-white shadow-md"
+                    : "bg-navy-100 text-navy-600 hover:bg-navy-200 hover:text-navy-900"
+                )}
               >
                 {cat}
               </button>
             ))}
           </div>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredCars.map((car) => (
-              <CarCard key={car.id} car={car} />
+          <p className="mt-6 text-sm text-navy-500">
+            Showing {filteredCars.length}{" "}
+            {filteredCars.length === 1 ? "car" : "cars"}
+            {activeCategory !== "All" ? ` in ${activeCategory}` : ""}
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {filteredCars.map((car, i) => (
+              <Reveal key={car.id} delay={Math.min(i, 5) * 60} className="h-full">
+                <CarCard car={car} />
+              </Reveal>
             ))}
           </div>
         </div>

@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
+import Reveal from "@/components/Reveal";
 import ContactForm from "./ContactForm";
 import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
+import { site, telHref, whatsappHref } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact Us | Rent a Car in Karachi Pakistan",
@@ -15,29 +18,30 @@ const contactInfo = [
   {
     icon: Phone,
     label: "Phone",
-    value: "+92 300 2589489",
-    href: "tel:+923002589489",
+    value: site.phoneDisplay,
+    href: telHref,
   },
   {
     icon: MessageCircle,
     label: "WhatsApp",
-    value: "+92 300 2589489",
-    href: "https://wa.me/923002589489",
+    value: site.phoneDisplay,
+    href: whatsappHref(),
   },
   {
     icon: Mail,
     label: "Email",
-    value: "info@driveease.pk",
+    value: site.email,
+    href: `mailto:${site.email}`,
   },
   {
     icon: MapPin,
     label: "Address",
-    value: "Karachi, Sindh, Pakistan",
+    value: site.address,
   },
   {
     icon: Clock,
     label: "Hours",
-    value: "8:00 AM to 10:00 PM (Daily)",
+    value: site.hours,
   },
 ];
 
@@ -46,41 +50,43 @@ export default function ContactPage() {
     <main>
       <Navbar />
 
-      <section className="bg-navy py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-white sm:text-4xl">
-            Contact Us for Car Rental in Karachi
-          </h1>
-          <p className="mt-4 text-gray-400 max-w-2xl">
-            Fill in the form below or reach us directly via phone or WhatsApp to
-            inquire about our car rental services in Karachi.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Contact"
+        title="Contact us for car rental in Karachi"
+        subtitle="Fill in the form below or reach us directly via phone or WhatsApp to inquire about our car rental services in Karachi."
+      />
 
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="bg-white py-14 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
-            <div>
-              <h2 className="text-xl font-bold text-gray-900 mb-6">
-                Send Us an Inquiry
-              </h2>
-              <ContactForm />
-            </div>
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-5 lg:gap-12">
+            <Reveal className="lg:col-span-3">
+              <div className="rounded-2xl border border-navy-200 bg-white p-6 shadow-card sm:p-8">
+                <h2 className="text-xl font-bold text-navy-900">
+                  Send us an inquiry
+                </h2>
+                <p className="mt-1.5 text-sm text-navy-500">
+                  Share a few details and we will confirm availability right
+                  away.
+                </p>
+                <div className="mt-7">
+                  <ContactForm />
+                </div>
+              </div>
+            </Reveal>
 
-            <div>
-              <h2 className="text-xl font-bold text-gray-900 mb-6">
-                Contact Information
-              </h2>
-              <div className="rounded-xl border border-gray-200 bg-gray-50 p-6">
-                <ul className="space-y-4">
+            <Reveal delay={100} className="lg:col-span-2">
+              <div className="rounded-2xl border border-navy-200 bg-navy-50 p-6 sm:p-8">
+                <h2 className="text-xl font-bold text-navy-900">
+                  Contact information
+                </h2>
+                <ul className="mt-6 space-y-5">
                   {contactInfo.map((item) => (
-                    <li key={item.label} className="flex items-start gap-3">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-amber/10">
-                        <item.icon size={18} className="text-amber" />
+                    <li key={item.label} className="flex items-start gap-3.5">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-brand-600">
+                        <item.icon size={18} />
                       </div>
-                      <div>
-                        <p className="text-sm font-medium text-gray-900">
+                      <div className="min-w-0">
+                        <p className="text-xs font-semibold uppercase tracking-wide text-navy-400">
                           {item.label}
                         </p>
                         {"href" in item && item.href ? (
@@ -96,28 +102,45 @@ export default function ContactPage() {
                                 ? "noopener noreferrer"
                                 : undefined
                             }
-                            className="text-sm text-gray-600 transition-colors hover:text-amber"
+                            className="mt-0.5 block break-words text-sm font-medium text-navy-800 transition-colors hover:text-brand-600"
                           >
                             {item.value}
                           </a>
                         ) : (
-                          <p className="text-sm text-gray-600">{item.value}</p>
+                          <p className="mt-0.5 text-sm font-medium text-navy-800">
+                            {item.value}
+                          </p>
                         )}
                       </div>
                     </li>
                   ))}
                 </ul>
+
+                <a
+                  href={whatsappHref(
+                    `Hi ${site.name}, I would like to inquire about renting a car in ${site.city}.`
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 flex h-11 items-center justify-center gap-2 rounded-xl bg-brand text-sm font-semibold text-white shadow-brand transition-colors hover:bg-brand-600"
+                >
+                  <MessageCircle size={17} />
+                  Chat on WhatsApp
+                </a>
               </div>
 
-              <div className="mt-6 rounded-xl bg-gray-100 h-48 flex items-center justify-center">
+              <div className="mt-6 flex h-44 items-center justify-center rounded-2xl border border-navy-200 bg-navy-100">
                 <div className="text-center">
-                  <MapPin size={32} className="mx-auto text-gray-400" />
-                  <p className="mt-2 text-sm text-gray-500">
-                    Karachi, Sindh, Pakistan
+                  <MapPin size={28} className="mx-auto text-navy-400" />
+                  <p className="mt-2 text-sm font-medium text-navy-600">
+                    {site.address}
+                  </p>
+                  <p className="mt-0.5 text-xs text-navy-400">
+                    Serving all major areas of {site.city}
                   </p>
                 </div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>

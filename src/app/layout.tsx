@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+
+// Used for headings via the `font-display` Tailwind family.
+const display = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+  variable: "--font-display",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -119,7 +127,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-PK" className={cn("font-sans", inter.variable)}>
+    <html
+      lang="en-PK"
+      className={cn("font-sans", inter.variable, display.variable)}
+    >
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script
@@ -127,7 +138,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={cn("antialiased", inter.variable)}>{children}</body>
+      <body className="antialiased">
+        {children}
+        <StickyMobileCTA />
+      </body>
     </html>
   );
 }

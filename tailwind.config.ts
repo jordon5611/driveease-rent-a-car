@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "var(--font-sans)", "sans-serif"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -22,22 +26,54 @@ const config: Config = {
           600: "#475569",
           700: "#334155",
           800: "#1e293b",
+          850: "#172033",
           900: "#0f172a",
           950: "#020617",
         },
-        amber: {
-          DEFAULT: "#f59e0b",
-          50: "#fffbeb",
-          100: "#fef3c7",
-          200: "#fde68a",
-          300: "#fcd34d",
-          400: "#fbbf24",
-          500: "#f59e0b",
-          600: "#d97706",
-          700: "#b45309",
-          800: "#92400e",
-          900: "#78350f",
+        // Brand orange, matching the "Orange Rent Car Services" name.
+        brand: {
+          DEFAULT: "#f97316",
+          50: "#fff7ed",
+          100: "#ffedd5",
+          200: "#fed7aa",
+          300: "#fdba74",
+          400: "#fb923c",
+          500: "#f97316",
+          600: "#ea580c",
+          700: "#c2410c",
+          800: "#9a3412",
+          900: "#7c2d12",
+          950: "#431407",
         },
+      },
+      boxShadow: {
+        card: "0 1px 2px 0 rgb(15 23 42 / 0.04), 0 4px 16px -2px rgb(15 23 42 / 0.06)",
+        "card-hover":
+          "0 8px 24px -4px rgb(15 23 42 / 0.12), 0 16px 48px -8px rgb(15 23 42 / 0.12)",
+        brand: "0 8px 24px -6px rgb(249 115 22 / 0.45)",
+      },
+      backgroundImage: {
+        "grid-navy":
+          "linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px)",
+      },
+      keyframes: {
+        "fade-up": {
+          from: { opacity: "0", transform: "translateY(16px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--accordion-panel-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--accordion-panel-height)" },
+          to: { height: "0" },
+        },
+      },
+      animation: {
+        "fade-up": "fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },

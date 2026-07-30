@@ -7,6 +7,13 @@
   .text-balance {
     text-wrap: balance;
   }
+  /* Scroll-reveal: hidden until the Reveal component marks it visible. */
+  .reveal {
+    opacity: 0;
+  }
+  .reveal-visible {
+    animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
 }
 
 @layer base {
@@ -28,7 +35,7 @@
     --destructive: #ef4444;
     --border: #e2e8f0;
     --input: #e2e8f0;
-    --ring: #94a3b8;
+    --ring: #f97316;
     --radius: 0.625rem;
   }
   * {
@@ -37,9 +44,46 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
   }
   html {
     font-family: var(--font-sans), system-ui, sans-serif;
     scroll-behavior: smooth;
+  }
+  /* Keep in-page anchor targets clear of the fixed navbar. */
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), var(--font-sans), sans-serif;
+    letter-spacing: -0.02em;
+  }
+  ::selection {
+    background-color: #fed7aa;
+    color: #0f172a;
+  }
+  /* Visible keyboard focus for every interactive element. */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid #f97316;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  /* Respect users who prefer less motion. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    .reveal,
+    .reveal-visible {
+      opacity: 1;
+      animation: none;
+    }
   }
 }

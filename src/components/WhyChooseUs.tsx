@@ -1,4 +1,6 @@
 import { Wrench, CalendarDays, MapPin, Headphones } from "lucide-react";
+import SectionHeading from "./SectionHeading";
+import Reveal from "./Reveal";
 
 const features = [
   {
@@ -25,37 +27,42 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-navy py-16 sm:py-20" id="about">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-white sm:text-4xl">
-            Why Rent With Orange Rent Car Services
-          </h2>
-          <p className="mt-3 text-gray-400 max-w-2xl mx-auto">
-            We are committed to providing the best car rental experience in Karachi
-          </p>
-        </div>
+    <section
+      className="relative overflow-hidden bg-navy-900 py-20 sm:py-24"
+      id="about"
+    >
+      {/* Soft brand glow to stop the dark section reading as a flat block. */}
+      <div className="pointer-events-none absolute -left-24 top-0 h-72 w-72 rounded-full bg-brand/10 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-brand/5 blur-3xl" />
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {features.map((feature) => (
-            <div
-              key={feature.title}
-              className="rounded-xl bg-navy-800 p-6 transition-all hover:bg-navy-700"
-            >
-              <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-amber">
-                  <feature.icon size={24} className="text-navy" />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Why Choose Us"
+            title="Rent with people who pick up the phone"
+            subtitle="We are committed to providing the most reliable car rental experience in Karachi."
+            inverted
+          />
+        </Reveal>
+
+        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {features.map((feature, i) => (
+            <Reveal key={feature.title} delay={i * 80} className="h-full">
+              <div className="group h-full rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 hover:bg-white/[0.07]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/15 ring-1 ring-brand/25 transition-colors group-hover:bg-brand">
+                  <feature.icon
+                    size={22}
+                    className="text-brand-400 transition-colors group-hover:text-white"
+                  />
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-white">
-                    {feature.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-gray-400 leading-relaxed">
-                    {feature.text}
-                  </p>
-                </div>
+                <h3 className="mt-5 font-display text-base font-semibold text-white">
+                  {feature.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-navy-400">
+                  {feature.text}
+                </p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

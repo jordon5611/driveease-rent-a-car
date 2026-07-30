@@ -1,11 +1,13 @@
 import { Search, Phone, Car } from "lucide-react";
+import SectionHeading from "./SectionHeading";
+import Reveal from "./Reveal";
 
 const steps = [
   {
     number: "01",
     icon: Search,
     title: "Browse Our Fleet",
-    text: "Explore our wide range of vehicles and choose the one that best suits your needs and travel plans.",
+    text: "Explore our range of vehicles and choose the one that best suits your needs and travel plans.",
   },
   {
     number: "02",
@@ -17,52 +19,52 @@ const steps = [
     number: "03",
     icon: Car,
     title: "Collect and Drive",
-    text: "Confirm the details with our team, collect your vehicle and enjoy your journey across Karachi and Pakistan.",
+    text: "Confirm the details with our team, collect your vehicle and enjoy your journey across Karachi.",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section className="py-16 sm:py-20 bg-white" id="how-it-works">
+    <section
+      className="bg-gradient-to-b from-white to-navy-50 py-20 sm:py-24"
+      id="how-it-works"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-            How It Works
-          </h2>
-          <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
-            Renting a car in Karachi has never been easier
-          </p>
-        </div>
+        <Reveal>
+          <SectionHeading
+            eyebrow="How It Works"
+            title="Three steps and you're on the road"
+            subtitle="Renting a car in Karachi has never been easier."
+          />
+        </Reveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-4 relative">
-          {steps.map((step, index) => (
-            <div key={step.number} className="relative text-center">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-amber/10">
-                <step.icon size={28} className="text-amber" />
-              </div>
-              <span className="mt-4 block text-4xl font-bold text-amber/30">
-                {step.number}
-              </span>
-              <h3 className="mt-2 text-lg font-semibold text-gray-900">
-                {step.title}
-              </h3>
-              <p className="mt-2 text-sm text-gray-600 leading-relaxed max-w-xs mx-auto">
-                {step.text}
-              </p>
-              {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-8 right-0 translate-x-1/2 text-gray-300">
-                  <svg width="40" height="20" viewBox="0 0 40 20" fill="none">
-                    <path
-                      d="M0 10 L35 10 M30 4 L38 10 L30 16"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeDasharray="4 4"
-                    />
-                  </svg>
+        <div className="relative mt-14">
+          {/* Connector line behind the step markers on desktop. */}
+          <div
+            aria-hidden
+            className="absolute left-[16.66%] right-[16.66%] top-7 hidden h-px bg-gradient-to-r from-brand-200 via-brand-300 to-brand-200 md:block"
+          />
+
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-6">
+            {steps.map((step, i) => (
+              <Reveal key={step.number} delay={i * 120}>
+                <div className="relative text-center">
+                  <div className="relative mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-brand text-white shadow-brand">
+                    <step.icon size={24} />
+                    <span className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-navy-900 text-[11px] font-bold text-white ring-2 ring-white">
+                      {step.number}
+                    </span>
+                  </div>
+                  <h3 className="mt-6 font-display text-lg font-semibold text-navy-900">
+                    {step.title}
+                  </h3>
+                  <p className="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-navy-500">
+                    {step.text}
+                  </p>
                 </div>
-              )}
-            </div>
-          ))}
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>

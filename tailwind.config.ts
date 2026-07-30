@@ -30,7 +30,7 @@ const config: Config = {
           900: "#0f172a",
           950: "#020617",
         },
-        // Brand orange, matching the "Orange Rent Car Services" name.
+        // Brand orange, used for the Elite Motors mark and all primary actions.
         brand: {
           DEFAULT: "#f97316",
           50: "#fff7ed",

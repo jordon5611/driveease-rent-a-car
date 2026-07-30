@@ -1,7 +1,7 @@
 import { MapPin } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
-import { serviceAreas } from "@/lib/site";
+import { serviceAreas, site } from "@/lib/site";
 
 export default function ServiceAreas() {
   return (
@@ -11,7 +11,7 @@ export default function ServiceAreas() {
           <SectionHeading
             eyebrow="Service Areas"
             title="Car rental across all of Karachi"
-            subtitle="Orange Rent Car Services provides reliable rent a car services across all major areas of Karachi, Pakistan. Whether you need a car for daily use, a family trip, corporate travel or airport pickup, our fleet is available throughout the city."
+            subtitle={`${site.name} provides reliable rent a car services across all major areas of Karachi, Pakistan. Whether you need a car for daily use, a family trip, corporate travel or airport pickup, our fleet is available throughout the city.`}
           />
         </Reveal>
 

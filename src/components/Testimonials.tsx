@@ -12,7 +12,7 @@ const testimonials = [
   },
   {
     quote:
-      "I needed a car on short notice and Orange Rent Car Services arranged it within hours. The Corolla was clean and well maintained.",
+      "I needed a car on short notice and Elite Motors Karachi arranged it within hours. The Corolla was clean and well maintained.",
     name: "Sara M.",
     city: "Clifton, Karachi",
     rating: 5,

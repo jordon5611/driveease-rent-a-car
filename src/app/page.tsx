@@ -8,10 +8,13 @@ import Testimonials from "@/components/Testimonials";
 import FAQSection from "@/components/FAQSection";
 import CTABanner from "@/components/CTABanner";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
+import { homeSchema } from "@/lib/seo";
 
 export default function Home() {
   return (
     <main>
+      <JsonLd schema={homeSchema} />
       <Navbar />
       <HeroSection />
       <FleetSection />

@@ -1,8 +1,10 @@
 export const site = {
-  name: "Orange Rent Car Services",
-  shortName: "Orange",
+  name: "Elite Motors Karachi",
+  shortName: "Elite Motors",
   city: "Karachi",
-  email: "info@driveease.pk",
+  domain: "elitemotorskarachi.com",
+  url: "https://www.elitemotorskarachi.com",
+  email: "info@elitemotorskarachi.com",
   // Display form shown to users.
   phoneDisplay: "+92 300 2589489",
   // E.164 form used by tel: links.
@@ -33,6 +35,11 @@ export const serviceAreas = [
 ] as const;
 
 export const telHref = `tel:${site.phoneRaw}`;
+
+/** Absolute URL for a path, needed by canonical tags, sitemaps and JSON-LD. */
+export function absoluteUrl(path = "/") {
+  return new URL(path, site.url).toString().replace(/\/$/, "") || site.url;
+}
 
 /** Builds a wa.me link, optionally pre-filling the chat with a message. */
 export function whatsappHref(message?: string) {

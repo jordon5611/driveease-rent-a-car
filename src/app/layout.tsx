@@ -3,6 +3,7 @@ import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
+import { site } from "@/lib/site";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -13,14 +14,21 @@ const display = Plus_Jakarta_Sans({
   variable: "--font-display",
 });
 
+const title =
+  "Rent a Car in Karachi | Affordable Car Rental Service | Elite Motors Karachi";
+const description =
+  "Rent a car in Karachi from Elite Motors Karachi. Toyota Corolla, Fortuner, Revo, Civic, Prius, Alto and more, available daily, weekly or monthly with or without a driver. Call +92 300 2589489.";
+
 export const metadata: Metadata = {
+  // Makes every relative URL below, plus the icon and OG image files that Next
+  // discovers in this folder, resolve to the real domain.
+  metadataBase: new URL(site.url),
   title: {
-    default:
-      "Rent a Car Karachi | Affordable Car Rental Service in Karachi Pakistan",
-    template: "%s | Orange Rent Car Services Karachi",
+    default: title,
+    template: `%s | ${site.name}`,
   },
-  description:
-    "Orange Rent Car Services offers affordable rent a car services in Karachi, Pakistan. Choose from Toyota Corolla, Fortuner, Prius, Civic, Alto and more. Daily, weekly and monthly car rentals available with and without driver.",
+  description,
+  applicationName: site.name,
   keywords: [
     "rent a car karachi",
     "car rental karachi",
@@ -35,90 +43,41 @@ export const metadata: Metadata = {
     "toyota corolla on rent karachi",
     "fortuner on rent karachi",
     "prius on rent karachi",
+    "elite motors karachi",
     "rent a car pakistan",
-    "car rental pakistan",
   ],
-  authors: [{ name: "Orange Rent Car Services" }],
-  creator: "Orange Rent Car Services",
-  metadataBase: new URL("https://www.driveease.pk"),
-  alternates: {
-    canonical: "https://www.driveease.pk",
-  },
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  publisher: site.name,
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_PK",
-    url: "https://www.driveease.pk",
-    siteName: "Orange Rent Car Services Karachi",
-    title:
-      "Rent a Car Karachi | Affordable Car Rental Service in Karachi Pakistan",
-    description:
-      "Orange Rent Car Services offers affordable rent a car services in Karachi, Pakistan. Toyota Corolla, Fortuner, Prius, Civic, Alto and more. Daily and monthly rentals.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Orange Rent Car Services Rent a Car Karachi",
-      },
-    ],
+    url: "/",
+    siteName: site.name,
+    title,
+    description,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rent a Car Karachi | Orange Rent Car Services",
-    description:
-      "Affordable car rental service in Karachi Pakistan. Wide fleet of cars available daily, weekly and monthly.",
-    images: ["/og-image.jpg"],
+    title,
+    description,
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
-};
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "CarRental",
-  name: "Orange Rent Car Services",
-  description: "Affordable car rental service in Karachi, Pakistan",
-  url: "https://www.driveease.pk",
-  telephone: "+92-300-2589489",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Karachi",
-    addressLocality: "Karachi",
-    addressRegion: "Sindh",
-    postalCode: "75500",
-    addressCountry: "PK",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: "24.8607",
-    longitude: "67.0011",
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
-    ],
-    opens: "08:00",
-    closes: "22:00",
-  },
-  areaServed: {
-    "@type": "City",
-    name: "Karachi",
-  },
-  hasMap: "https://maps.google.com/?q=Karachi,Pakistan",
-  sameAs: [
-    "https://www.facebook.com/driveease",
-    "https://www.instagram.com/driveease",
-  ],
+  category: "Car Rental",
+  // No formatDetection here on purpose: Next writes `telephone=no` for every key
+  // it is given regardless of the value, which would stop iOS turning the phone
+  // number into a tap to call link. The default behaviour is what we want.
 };
 
 export default function RootLayout({
@@ -133,10 +92,9 @@ export default function RootLayout({
     >
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <meta name="theme-color" content="#0f172a" />
+        <meta name="geo.region" content="PK-SD" />
+        <meta name="geo.placename" content={site.city} />
       </head>
       <body className="antialiased">
         {children}

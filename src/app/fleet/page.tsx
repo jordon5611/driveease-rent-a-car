@@ -1,26 +1,32 @@
-"use client";
-
-import { useState } from "react";
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
-import CarCard from "@/components/CarCard";
-import Reveal from "@/components/Reveal";
+import JsonLd from "@/components/JsonLd";
+import { fleetSchemaGraph, ogImage } from "@/lib/seo";
 import { cars } from "@/data/cars";
-import { cn } from "@/lib/utils";
+import FleetGrid from "./FleetGrid";
 
-const categories = ["All", "Economy", "Sedan", "SUV", "Hatchback", "Hybrid"];
+const title = "Our Fleet | Cars Available for Rent in Karachi";
+const shareDescription = `Browse all ${cars.length} rental cars available in Karachi. Economy, sedan, SUV, hatchback and hybrid options for daily, weekly and monthly rental.`;
+
+export const metadata: Metadata = {
+  title,
+  description: `Browse all ${cars.length} rental cars available in Karachi, including Toyota Corolla, Fortuner, Revo, Prius, Vitz, Yaris, Aqua, Honda Civic, Suzuki Alto and JAC T9. Economy, sedan, SUV, hatchback and hybrid options.`,
+  alternates: { canonical: "/fleet" },
+  openGraph: {
+    url: "/fleet",
+    title,
+    description: shareDescription,
+    images: [ogImage],
+  },
+  twitter: { title, description: shareDescription, images: [ogImage.url] },
+};
 
 export default function FleetPage() {
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const filteredCars =
-    activeCategory === "All"
-      ? cars
-      : cars.filter((car) => car.category === activeCategory);
-
   return (
     <main>
+      <JsonLd schema={fleetSchemaGraph} />
       <Navbar />
 
       <PageHero
@@ -31,42 +37,7 @@ export default function FleetPage() {
 
       <section className="bg-white py-14 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div
-            className="flex flex-wrap gap-2"
-            role="tablist"
-            aria-label="Filter fleet by category"
-          >
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                role="tab"
-                aria-selected={activeCategory === cat}
-                onClick={() => setActiveCategory(cat)}
-                className={cn(
-                  "rounded-full px-5 py-2.5 text-sm font-semibold transition-all",
-                  activeCategory === cat
-                    ? "bg-navy-900 text-white shadow-md"
-                    : "bg-navy-100 text-navy-600 hover:bg-navy-200 hover:text-navy-900"
-                )}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-
-          <p className="mt-6 text-sm text-navy-500">
-            Showing {filteredCars.length}{" "}
-            {filteredCars.length === 1 ? "car" : "cars"}
-            {activeCategory !== "All" ? ` in ${activeCategory}` : ""}
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredCars.map((car, i) => (
-              <Reveal key={car.id} delay={Math.min(i, 5) * 60} className="h-full">
-                <CarCard car={car} />
-              </Reveal>
-            ))}
-          </div>
+          <FleetGrid />
         </div>
       </section>
 

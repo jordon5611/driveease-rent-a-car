@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Users, Settings, Fuel, Snowflake, MessageCircle } from "lucide-react";
 import type { Car } from "@/data/cars";
+import { carImageUrl } from "@/data/cars";
 import { site, whatsappHref } from "@/lib/site";
 
 interface CarCardProps {
@@ -18,15 +19,14 @@ export default function CarCard({ car }: CarCardProps) {
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-navy-200 bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-card-hover">
-      <div className="relative h-52 overflow-hidden bg-navy-100">
+      <div className="relative aspect-[16/10] overflow-hidden bg-navy-100">
         <Image
-          src={car.image}
+          src={carImageUrl(car)}
           alt={car.altText}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
-        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-navy/60 to-transparent" />
         <span className="absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-navy-900 shadow-sm backdrop-blur-sm">
           {car.category}
         </span>

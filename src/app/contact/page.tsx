@@ -6,12 +6,23 @@ import Reveal from "@/components/Reveal";
 import ContactForm from "./ContactForm";
 import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
 import { site, telHref, whatsappHref } from "@/lib/site";
+import JsonLd from "@/components/JsonLd";
+import { contactSchema, ogImage } from "@/lib/seo";
+
+const title = "Contact Us | Rent a Car in Karachi Pakistan";
+const description = `Contact ${site.name} to rent a car in Karachi. Call or WhatsApp ${site.phoneDisplay}, or send an enquiry to book a car for daily, weekly or monthly rental. We serve all areas of Karachi, Pakistan.`;
 
 export const metadata: Metadata = {
-  title: "Contact Us | Rent a Car in Karachi Pakistan",
-  description:
-    "Contact Orange Rent Car Services to rent a car in Karachi. Call us or fill the form to book a car for daily, weekly or monthly rental. We serve all areas of Karachi, Pakistan.",
-  alternates: { canonical: "https://www.driveease.pk/contact" },
+  title,
+  description,
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    url: "/contact",
+    title,
+    description,
+    images: [ogImage],
+  },
+  twitter: { title, description, images: [ogImage.url] },
 };
 
 const contactInfo = [
@@ -48,6 +59,7 @@ const contactInfo = [
 export default function ContactPage() {
   return (
     <main>
+      <JsonLd schema={contactSchema} />
       <Navbar />
 
       <PageHero

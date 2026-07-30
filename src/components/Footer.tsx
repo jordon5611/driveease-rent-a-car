@@ -23,8 +23,8 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <Link href="/" className="text-2xl font-bold text-white">
-              DriveEase
+            <Link href="/" className="text-xl font-bold text-white sm:text-2xl">
+              <span className="text-amber">Orange</span> Rent Car Services
             </Link>
             <p className="mt-3 text-sm text-gray-400 leading-relaxed">
               Trusted car rental service in Karachi, Pakistan
@@ -101,7 +101,7 @@ export default function Footer() {
 
         <div className="mt-10 border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-xs text-gray-500">
-            2025 DriveEase. All rights reserved.
+            2025 Orange Rent Car Services. All rights reserved.
           </p>
           <p className="text-xs text-gray-500">Rent a Car Karachi Pakistan</p>
         </div>

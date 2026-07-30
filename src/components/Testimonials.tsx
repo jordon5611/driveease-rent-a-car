@@ -10,7 +10,7 @@ const testimonials = [
   },
   {
     quote:
-      "I needed a car on short notice and DriveEase arranged it within hours. The Corolla was clean and well maintained.",
+      "I needed a car on short notice and Orange Rent Car Services arranged it within hours. The Corolla was clean and well maintained.",
     name: "Sara M.",
     city: "Karachi",
     rating: 5,
@@ -43,7 +43,8 @@ export default function Testimonials() {
             What Our Customers Say
           </h2>
           <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
-            Hundreds of satisfied customers across Karachi trust DriveEase
+            Hundreds of satisfied customers across Karachi trust Orange Rent Car
+            Services
           </p>
         </div>
 

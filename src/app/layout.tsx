@@ -9,10 +9,10 @@ export const metadata: Metadata = {
   title: {
     default:
       "Rent a Car Karachi | Affordable Car Rental Service in Karachi Pakistan",
-    template: "%s | DriveEase Car Rental Karachi",
+    template: "%s | Orange Rent Car Services Karachi",
   },
   description:
-    "DriveEase offers affordable rent a car services in Karachi, Pakistan. Choose from Toyota Corolla, Fortuner, Prius, Civic, Alto and more. Daily, weekly and monthly car rentals available with and without driver.",
+    "Orange Rent Car Services offers affordable rent a car services in Karachi, Pakistan. Choose from Toyota Corolla, Fortuner, Prius, Civic, Alto and more. Daily, weekly and monthly car rentals available with and without driver.",
   keywords: [
     "rent a car karachi",
     "car rental karachi",
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
     "rent a car pakistan",
     "car rental pakistan",
   ],
-  authors: [{ name: "DriveEase" }],
-  creator: "DriveEase",
+  authors: [{ name: "Orange Rent Car Services" }],
+  creator: "Orange Rent Car Services",
   metadataBase: new URL("https://www.driveease.pk"),
   alternates: {
     canonical: "https://www.driveease.pk",
@@ -40,23 +40,23 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_PK",
     url: "https://www.driveease.pk",
-    siteName: "DriveEase Car Rental Karachi",
+    siteName: "Orange Rent Car Services Karachi",
     title:
       "Rent a Car Karachi | Affordable Car Rental Service in Karachi Pakistan",
     description:
-      "DriveEase offers affordable rent a car services in Karachi, Pakistan. Toyota Corolla, Fortuner, Prius, Civic, Alto and more. Daily and monthly rentals.",
+      "Orange Rent Car Services offers affordable rent a car services in Karachi, Pakistan. Toyota Corolla, Fortuner, Prius, Civic, Alto and more. Daily and monthly rentals.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "DriveEase Rent a Car Karachi",
+        alt: "Orange Rent Car Services Rent a Car Karachi",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rent a Car Karachi | DriveEase Car Rental",
+    title: "Rent a Car Karachi | Orange Rent Car Services",
     description:
       "Affordable car rental service in Karachi Pakistan. Wide fleet of cars available daily, weekly and monthly.",
     images: ["/og-image.jpg"],
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "CarRental",
-  name: "DriveEase",
+  name: "Orange Rent Car Services",
   description: "Affordable car rental service in Karachi, Pakistan",
   url: "https://www.driveease.pk",
   telephone: "+92-300-2589489",

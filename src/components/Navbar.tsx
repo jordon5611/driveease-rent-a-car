@@ -19,8 +19,11 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-navy shadow-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="text-2xl font-bold text-white">
-            DriveEase
+          <Link
+            href="/"
+            className="text-lg font-bold text-white sm:text-xl lg:text-2xl"
+          >
+            <span className="text-amber">Orange</span> Rent Car Services
           </Link>
 
           <div className="hidden md:flex md:items-center md:gap-8">

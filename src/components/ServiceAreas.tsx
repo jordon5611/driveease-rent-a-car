@@ -25,7 +25,7 @@ export default function ServiceAreas() {
 
         <div className="mt-8 max-w-4xl mx-auto">
           <p className="text-gray-600 leading-relaxed text-center">
-            DriveEase provides reliable rent a car services across all major areas
+            Orange Rent Car Services provides reliable rent a car services across all major areas
             of Karachi, Pakistan. Whether you need a car for daily use, a family
             trip, corporate travel or airport pickup, our fleet is available
             throughout the city. We serve areas including DHA Karachi, Clifton,

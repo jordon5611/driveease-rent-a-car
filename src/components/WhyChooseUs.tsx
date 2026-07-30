@@ -29,7 +29,7 @@ export default function WhyChooseUs() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-white sm:text-4xl">
-            Why Rent With DriveEase
+            Why Rent With Orange Rent Car Services
           </h2>
           <p className="mt-3 text-gray-400 max-w-2xl mx-auto">
             We are committed to providing the best car rental experience in Karachi

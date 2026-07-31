@@ -3,6 +3,8 @@
  * feed both the visible accordion and the FAQPage structured data. Google only
  * honours FAQ rich results when the markup matches what the user can see.
  */
+import { site } from "@/lib/site";
+
 export interface Faq {
   question: string;
   answer: string;
@@ -18,6 +20,11 @@ export const faqs: Faq[] = [
     question: "Do you offer car rental with a driver in Karachi?",
     answer:
       "Yes, we offer both self drive and with driver rental options across Karachi. Our drivers are experienced, licensed and familiar with all routes in the city.",
+  },
+  {
+    question: "Do you provide airport pick up and drop off in Karachi?",
+    answer:
+      "Yes, we provide pick up and drop off at Jinnah International Airport. Share your flight details on WhatsApp and a car will be waiting for you at arrivals, or we will drop you off in time for your departure.",
   },
   {
     question: "What areas of Karachi do you serve?",
@@ -36,7 +43,6 @@ export const faqs: Faq[] = [
   },
   {
     question: "How do I book a rental car in Karachi?",
-    answer:
-      "Simply contact us via WhatsApp, call or fill out our contact form on this website. Our team will confirm availability and finalize the details with you directly.",
+    answer: `Simply call or WhatsApp us at ${site.phoneDisplay} with your dates and the car you need. Our team will confirm availability and finalize the details with you directly, usually within minutes.`,
   },
 ];

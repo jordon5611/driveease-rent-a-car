@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import FleetSection from "@/components/FleetSection";
+import ServicesSection from "@/components/ServicesSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import HowItWorks from "@/components/HowItWorks";
 import ServiceAreas from "@/components/ServiceAreas";
@@ -18,6 +19,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <FleetSection />
+      <ServicesSection />
       <WhyChooseUs />
       <HowItWorks />
       <ServiceAreas />

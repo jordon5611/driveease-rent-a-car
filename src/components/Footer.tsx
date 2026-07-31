@@ -6,6 +6,7 @@ import { site, telHref, whatsappHref } from "@/lib/site";
 const quickLinks = [
   { href: "/", label: "Home" },
   { href: "/fleet", label: "Our Fleet" },
+  { href: "/#services", label: "Services" },
   { href: "/#how-it-works", label: "How It Works" },
   { href: "/#faq", label: "FAQs" },
   { href: "/contact", label: "Contact" },

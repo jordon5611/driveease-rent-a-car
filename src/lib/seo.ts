@@ -1,6 +1,7 @@
 import { site, absoluteUrl, serviceAreas } from "@/lib/site";
 import { faqs } from "@/data/faqs";
 import { cars, carImageUrl } from "@/data/cars";
+import { services } from "@/data/services";
 
 /** Stable node ids so the graph can cross reference itself. */
 const ORG_ID = `${site.url}/#organization`;
@@ -29,7 +30,7 @@ export const organizationSchema = {
   "@type": "CarRental",
   "@id": ORG_ID,
   name: site.name,
-  description: `Car rental service in ${site.city}, Pakistan offering daily, weekly and monthly rentals with or without a driver.`,
+  description: `Car rental service in ${site.city}, Pakistan offering daily, weekly and monthly rentals with or without a driver, plus airport pick up and drop off.`,
   url: site.url,
   telephone: site.phoneRaw,
   email: site.email,
@@ -68,6 +69,22 @@ export const organizationSchema = {
   })),
   hasMap: `https://maps.google.com/?q=${encodeURIComponent(site.address)}`,
   currenciesAccepted: "PKR",
+  // Mirrors the visible Services section. Each entry stays price free because
+  // rates are quoted per booking; inventing an Offer price would be false.
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: `Car rental services in ${site.city}`,
+    itemListElement: services.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.name,
+        description: service.description,
+        provider: { "@id": ORG_ID },
+        areaServed: { "@type": "City", name: site.city },
+      },
+    })),
+  },
 };
 
 const websiteSchema = {

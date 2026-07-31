@@ -13,7 +13,7 @@ const steps = [
     number: "02",
     icon: Phone,
     title: "Get in Touch",
-    text: "Contact us via phone or WhatsApp or fill out our inquiry form and we will get back to you promptly.",
+    text: "Call or WhatsApp us with your dates and the car you need, and we will get back to you promptly.",
   },
   {
     number: "03",

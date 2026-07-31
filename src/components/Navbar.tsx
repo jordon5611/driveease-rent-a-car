@@ -10,6 +10,7 @@ import { site, telHref } from "@/lib/site";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/fleet", label: "Our Fleet" },
+  { href: "/#services", label: "Services" },
   { href: "/#how-it-works", label: "How It Works" },
   { href: "/#about", label: "About" },
   { href: "/contact", label: "Contact" },

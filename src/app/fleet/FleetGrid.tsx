@@ -47,8 +47,9 @@ export default function FleetGrid() {
 
       <p className="mt-6 text-sm text-navy-500" aria-live="polite">
         Showing {filteredCars.length}{" "}
-        {filteredCars.length === 1 ? "car" : "cars"}
-        {activeCategory !== "All" ? ` in ${activeCategory}` : ""}
+        {filteredCars.length === 1 ? "model" : "models"}
+        {activeCategory !== "All" ? ` in ${activeCategory}` : ""}. Multiple
+        units of each model are available.
       </p>
 
       <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

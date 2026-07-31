@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { cars } from "@/data/cars";
+import { site } from "@/lib/site";
 import CarCard from "./CarCard";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
@@ -24,7 +25,7 @@ export default function FleetSection() {
           <SectionHeading
             eyebrow="Our Fleet"
             title="Pick the car that fits your trip"
-            subtitle="A wide range of well maintained vehicles available for rent across Karachi, from budget hatchbacks to premium SUVs."
+            subtitle={`Over ${site.fleetSize.replace("+", "")} well maintained vehicles across the models below, available for rent all over Karachi. From budget hatchbacks to premium SUVs.`}
           />
         </Reveal>
 

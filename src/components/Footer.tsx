@@ -34,9 +34,9 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <Logo />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-navy-400">
-              Trusted car rental service in {site.city}, Pakistan. Well
-              maintained vehicles, transparent rates and quick booking over a
-              single WhatsApp message.
+              Trusted car rental service in {site.city}, Pakistan. A fleet of{" "}
+              {site.fleetSize} well maintained vehicles, transparent rates and
+              quick booking over a single WhatsApp message.
             </p>
           </div>
 

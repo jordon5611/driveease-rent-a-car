@@ -17,7 +17,7 @@ const display = Plus_Jakarta_Sans({
 const title =
   "Rent a Car in Karachi | Affordable Car Rental Service | Elite Motors Karachi";
 const description =
-  "Rent a car in Karachi from Elite Motors Karachi. Toyota Corolla, Fortuner, Revo, Civic, Prius and more, daily, weekly or monthly, self drive or with driver, plus airport pick up and drop off. Call +92 300 2589489.";
+  "Rent a car in Karachi from Elite Motors Karachi's fleet of 120+ vehicles. Toyota Corolla, Fortuner, Revo, Civic, Prius and more, daily, weekly or monthly, self drive or with driver, plus airport pick up and drop off. Call +92 300 2589489.";
 
 export const metadata: Metadata = {
   // Makes every relative URL below, plus the icon and OG image files that Next

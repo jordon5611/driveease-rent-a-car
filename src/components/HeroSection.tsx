@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Check, MessageCircle, ArrowRight } from "lucide-react";
 import { site, whatsappHref, serviceAreas } from "@/lib/site";
-import { cars } from "@/data/cars";
 
 const highlights = [
   "Daily, weekly & monthly",
@@ -10,9 +9,10 @@ const highlights = [
   "All major areas of Karachi",
 ];
 
-// Counts are derived from the real data so they stay truthful as it grows.
+// Fleet size comes from the site config; the other counts are derived from
+// real data so they stay truthful as it grows.
 const stats = [
-  { value: String(cars.length), label: "Vehicles in fleet" },
+  { value: site.fleetSize, label: "Vehicles in fleet" },
   { value: String(serviceAreas.length), label: "Areas covered" },
   { value: "24/7", label: "Customer support" },
 ];

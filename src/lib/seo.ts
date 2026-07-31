@@ -30,7 +30,7 @@ export const organizationSchema = {
   "@type": "CarRental",
   "@id": ORG_ID,
   name: site.name,
-  description: `Car rental service in ${site.city}, Pakistan offering daily, weekly and monthly rentals with or without a driver, plus airport pick up and drop off.`,
+  description: `Car rental service in ${site.city}, Pakistan with a fleet of ${site.fleetSize} vehicles, offering daily, weekly and monthly rentals with or without a driver, plus airport pick up and drop off.`,
   url: site.url,
   telephone: site.phoneRaw,
   email: site.email,
@@ -106,10 +106,10 @@ const faqSchema = {
   })),
 };
 
-/** The fleet, so individual vehicles can surface in search. */
+/** The model line-up, so individual vehicles can surface in search. */
 const fleetSchema = {
   "@type": "ItemList",
-  name: `Rental fleet in ${site.city}`,
+  name: `Rental fleet models in ${site.city}`,
   numberOfItems: cars.length,
   itemListElement: cars.map((car, index) => ({
     "@type": "ListItem",

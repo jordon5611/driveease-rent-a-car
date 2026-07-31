@@ -38,8 +38,7 @@ export const faqs: Faq[] = [
   },
   {
     question: "Which cars are available for rent in Karachi?",
-    answer:
-      "Our fleet includes Toyota Revo, Toyota Fortuner, Toyota Corolla, Honda Civic, Suzuki Alto, Toyota Vitz, Toyota Yaris, Toyota Aqua, Toyota Prius and JAC T9. All vehicles are well maintained and regularly serviced.",
+    answer: `Our fleet of ${site.fleetSize} vehicles includes the Toyota Revo, Toyota Fortuner, Toyota Corolla, Honda Civic, Suzuki Alto, Toyota Vitz, Toyota Yaris, Toyota Aqua, Toyota Prius and JAC T9, with multiple units of each model. All vehicles are well maintained and regularly serviced.`,
   },
   {
     question: "How do I book a rental car in Karachi?",

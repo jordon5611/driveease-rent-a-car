@@ -15,6 +15,8 @@ export interface Car {
    */
   focus?: { x?: number; y?: number; z?: number };
   altText: string;
+  /** Shown on the home page. The full list always lives at /fleet. */
+  featured?: boolean;
 }
 
 // The shape the fleet cards render images at.
@@ -57,6 +59,7 @@ export const cars: Car[] = [
     // Portrait photo; the truck sits low in the frame.
     focus: { y: 0.72 },
     altText: "Toyota Revo for rent in Karachi",
+    featured: true,
   },
   {
     id: "toyota-fortuner",
@@ -72,6 +75,7 @@ export const cars: Car[] = [
     // Portrait photo; the SUV sits low in the frame.
     focus: { y: 0.72 },
     altText: "Toyota Fortuner for rent in Karachi",
+    featured: true,
   },
   {
     id: "toyota-corolla",
@@ -85,6 +89,7 @@ export const cars: Car[] = [
       "Pakistan's most trusted sedan. Comfortable, fuel efficient and perfect for city driving in Karachi.",
     image: "https://images.unsplash.com/photo-1638618164682-12b986ec2a75",
     altText: "Toyota Corolla rental car Karachi",
+    featured: true,
   },
   {
     id: "honda-civic",
@@ -100,6 +105,7 @@ export const cars: Car[] = [
     // Portrait photo; the car's front end sits above centre.
     focus: { y: 0.4 },
     altText: "Honda Civic on rent Karachi Pakistan",
+    featured: true,
   },
   {
     id: "suzuki-alto",
@@ -115,6 +121,7 @@ export const cars: Car[] = [
     // The car is small and off to the right, so this crops in tightly.
     focus: { x: 0.8, y: 0.56, z: 2.2 },
     altText: "Suzuki Alto for rent in Karachi",
+    featured: true,
   },
   {
     id: "toyota-vitz",
@@ -170,6 +177,7 @@ export const cars: Car[] = [
     image: "https://images.unsplash.com/photo-1707050050343-352947150d4e",
     focus: { x: 0.62, y: 0.62, z: 1.4 },
     altText: "Toyota Prius on rent Karachi Pakistan",
+    featured: true,
   },
   {
     id: "jac-t9",
@@ -186,3 +194,6 @@ export const cars: Car[] = [
     altText: "JAC T9 pickup truck rental Karachi",
   },
 ];
+
+/** The six models shown on the home page, in fleet order. */
+export const featuredCars = cars.filter((car) => car.featured);

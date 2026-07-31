@@ -1,23 +1,16 @@
-"use client";
-
-import { useState } from "react";
-import { cars } from "@/data/cars";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { cars, featuredCars } from "@/data/cars";
 import { site } from "@/lib/site";
 import CarCard from "./CarCard";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
-import { cn } from "@/lib/utils";
 
-const categories = ["All", "Economy", "Sedan", "SUV", "Hatchback", "Hybrid"];
-
+/**
+ * The home page shows only the featured models so visitors reach the rest of
+ * the page sooner. Browsing and filtering the full line-up happens on /fleet.
+ */
 export default function FleetSection() {
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const filteredCars =
-    activeCategory === "All"
-      ? cars
-      : cars.filter((car) => car.category === activeCategory);
-
   return (
     <section className="bg-white py-20 sm:py-24" id="fleet">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -25,42 +18,32 @@ export default function FleetSection() {
           <SectionHeading
             eyebrow="Our Fleet"
             title="Pick the car that fits your trip"
-            subtitle={`Over ${site.fleetSize.replace("+", "")} well maintained vehicles across the models below, available for rent all over Karachi. From budget hatchbacks to premium SUVs.`}
+            subtitle={`Over ${site.fleetSize.replace("+", "")} well maintained vehicles across ${cars.length} models, available for rent all over Karachi. These are our most requested cars.`}
           />
         </Reveal>
 
-        <Reveal delay={80}>
-          <div
-            className="mt-10 flex flex-wrap justify-center gap-2"
-            role="tablist"
-            aria-label="Filter fleet by category"
-          >
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                role="tab"
-                aria-selected={activeCategory === cat}
-                onClick={() => setActiveCategory(cat)}
-                className={cn(
-                  "rounded-full px-5 py-2.5 text-sm font-semibold transition-all",
-                  activeCategory === cat
-                    ? "bg-navy-900 text-white shadow-md"
-                    : "bg-navy-100 text-navy-600 hover:bg-navy-200 hover:text-navy-900"
-                )}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </Reveal>
-
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredCars.map((car, i) => (
+          {featuredCars.map((car, i) => (
             <Reveal key={car.id} delay={Math.min(i, 5) * 60} className="h-full">
               <CarCard car={car} />
             </Reveal>
           ))}
         </div>
+
+        <Reveal>
+          <div className="mt-12 text-center">
+            <Link
+              href="/fleet"
+              className="group inline-flex items-center justify-center gap-2 rounded-xl bg-navy-900 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-navy-800"
+            >
+              View all {cars.length} models
+              <ArrowRight
+                size={18}
+                className="transition-transform group-hover:translate-x-0.5"
+              />
+            </Link>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

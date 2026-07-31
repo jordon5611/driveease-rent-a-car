@@ -1,6 +1,6 @@
 import { site, absoluteUrl, serviceAreas } from "@/lib/site";
 import { faqs } from "@/data/faqs";
-import { cars, carImageUrl } from "@/data/cars";
+import { cars, featuredCars, carImageUrl, type Car } from "@/data/cars";
 import { services } from "@/data/services";
 
 /** Stable node ids so the graph can cross reference itself. */
@@ -106,25 +106,31 @@ const faqSchema = {
   })),
 };
 
-/** The model line-up, so individual vehicles can surface in search. */
-const fleetSchema = {
-  "@type": "ItemList",
-  name: `Rental fleet models in ${site.city}`,
-  numberOfItems: cars.length,
-  itemListElement: cars.map((car, index) => ({
-    "@type": "ListItem",
-    position: index + 1,
-    item: {
-      "@type": "Car",
-      name: car.name,
-      description: car.description,
-      image: carImageUrl(car),
-      vehicleSeatingCapacity: car.seats,
-      vehicleTransmission: car.transmission,
-      fuelType: car.fuel,
-    },
-  })),
-};
+/**
+ * The model line-up, so individual vehicles can surface in search. Structured
+ * data has to mirror what the page actually shows, so the home page marks up
+ * only the featured cards while /fleet marks up the full list.
+ */
+function fleetSchema(list: Car[]) {
+  return {
+    "@type": "ItemList",
+    name: `Rental fleet models in ${site.city}`,
+    numberOfItems: list.length,
+    itemListElement: list.map((car, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Car",
+        name: car.name,
+        description: car.description,
+        image: carImageUrl(car),
+        vehicleSeatingCapacity: car.seats,
+        vehicleTransmission: car.transmission,
+        fuelType: car.fuel,
+      },
+    })),
+  };
+}
 
 export function breadcrumbSchema(trail: { name: string; path: string }[]) {
   return {
@@ -155,11 +161,11 @@ export const homeSchema = graph(
   organizationSchema,
   websiteSchema,
   faqSchema,
-  fleetSchema
+  fleetSchema(featuredCars)
 );
 
 export const fleetSchemaGraph = graph(
-  fleetSchema,
+  fleetSchema(cars),
   breadcrumbSchema([{ name: "Our Fleet", path: "/fleet" }])
 );
 

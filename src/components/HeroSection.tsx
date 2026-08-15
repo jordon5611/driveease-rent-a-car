@@ -21,8 +21,8 @@ export default function HeroSection() {
   return (
     <section className="relative isolate overflow-hidden bg-navy">
       <Image
-        src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1920&q=80"
-        alt="Car rental service in Karachi, Pakistan"
+        src="/images/hero_bg.jpg"
+        alt="Premium Car rental service in Karachi, Pakistan"
         fill
         priority
         sizes="100vw"

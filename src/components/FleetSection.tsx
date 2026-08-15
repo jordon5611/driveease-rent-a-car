@@ -12,13 +12,14 @@ import Reveal from "./Reveal";
  */
 export default function FleetSection() {
   return (
-    <section className="bg-white py-20 sm:py-24" id="fleet">
+    <section className="bg-navy-950 py-20 sm:py-24" id="fleet">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading
             eyebrow="Our Fleet"
             title="Pick the car that fits your trip"
             subtitle={`Over ${site.fleetSize.replace("+", "")} well maintained vehicles across ${cars.length} models, available for rent all over Karachi. These are our most requested cars.`}
+            inverted
           />
         </Reveal>
 

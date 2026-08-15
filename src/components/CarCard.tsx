@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Users, Settings, Fuel, Snowflake, MessageCircle } from "lucide-react";
 import type { Car } from "@/data/cars";
-import { carImageUrl } from "@/data/cars";
 import { site, whatsappHref } from "@/lib/site";
 
 interface CarCardProps {
@@ -14,61 +13,78 @@ export default function CarCard({ car }: CarCardProps) {
     { icon: Users, label: `${car.seats} Seats` },
     { icon: Settings, label: car.transmission },
     { icon: Fuel, label: car.fuel },
-    { icon: Snowflake, label: car.ac ? "AC" : "Non AC" },
+    { icon: Snowflake, label: car.ac ? "AC" : "No AC" },
   ];
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-navy-200 bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-card-hover">
-      <div className="relative aspect-[16/10] overflow-hidden bg-navy-100">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-black/40 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-2 hover:border-brand-500/50 hover:bg-black/60 hover:shadow-[0_8px_40px_rgb(249,115,22,0.15)]">
+      
+      {/* Image Container */}
+      <div className="relative aspect-[16/10] overflow-hidden">
         <Image
-          src={carImageUrl(car)}
+          src={car.image}
           alt={car.altText}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover transition-transform duration-700 group-hover:scale-110"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
-        <span className="absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-navy-900 shadow-sm backdrop-blur-sm">
+        {/* Gradient Overlay for blending */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent mix-blend-multiply" />
+        
+        {/* Category Badge */}
+        <div className="absolute left-4 top-4 rounded-full border border-white/20 bg-black/50 px-4 py-1.5 text-xs font-semibold tracking-wide text-white backdrop-blur-md">
           {car.category}
-        </span>
+        </div>
       </div>
 
-      <div className="flex flex-1 flex-col p-5">
-        <h3 className="font-display text-lg font-bold text-navy-900">
-          {car.name}
-        </h3>
-        <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-navy-500">
+      {/* Content */}
+      <div className="relative z-10 flex flex-1 flex-col p-6 -mt-6">
+        
+        {/* Title and Price */}
+        <div className="mb-4">
+          <h3 className="font-display text-2xl font-bold tracking-tight text-white group-hover:text-brand-400 transition-colors">
+            {car.name}
+          </h3>
+          <p className="mt-2 text-xl font-semibold text-brand-500">
+            {car.price}
+          </p>
+        </div>
+
+        <p className="mb-6 line-clamp-2 text-sm leading-relaxed text-gray-400">
           {car.description}
         </p>
 
-        <div className="mt-4 grid grid-cols-2 gap-2">
+        {/* Specs Grid */}
+        <div className="mt-auto grid grid-cols-2 gap-3 pb-6">
           {specs.map((spec) => (
             <div
               key={spec.label}
-              className="flex items-center gap-2 rounded-lg bg-navy-50 px-2.5 py-2 text-xs font-medium text-navy-700"
+              className="flex items-center gap-2.5 rounded-xl border border-white/5 bg-white/5 px-3 py-2.5 text-xs font-medium text-gray-300 backdrop-blur-sm transition-colors group-hover:bg-white/10"
             >
-              <spec.icon size={14} className="shrink-0 text-brand-500" />
+              <spec.icon size={16} className="shrink-0 text-brand-500" />
               <span className="truncate">{spec.label}</span>
             </div>
           ))}
         </div>
 
-        <div className="mt-auto flex gap-2 pt-5">
+        {/* Actions */}
+        <div className="flex gap-3">
           <Link
             href="/contact"
-            className="flex h-10 flex-1 items-center justify-center rounded-xl bg-navy-900 text-sm font-semibold text-white transition-colors hover:bg-navy-800"
+            className="flex h-12 flex-1 items-center justify-center rounded-xl bg-white/10 border border-white/10 text-sm font-semibold text-white backdrop-blur-md transition-all hover:bg-white/20 hover:border-white/30"
           >
             Inquire Now
           </Link>
           <a
             href={whatsappHref(
-              `Hi ${site.name}, I am interested in renting the ${car.name}. Is it available?`
+              `Hi ${site.name}, I am interested in renting the ${car.name} (${car.price}). Is it available?`
             )}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Ask about the ${car.name} on WhatsApp`}
-            className="flex h-10 w-11 shrink-0 items-center justify-center rounded-xl bg-brand text-white transition-colors hover:bg-brand-600"
+            className="flex h-12 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 text-white shadow-lg transition-all hover:scale-105 hover:shadow-brand/50"
           >
-            <MessageCircle size={17} />
+            <MessageCircle size={20} />
           </a>
         </div>
       </div>

@@ -12,6 +12,7 @@ export interface Car {
   focus?: { x?: number; y?: number; z?: number };
   altText: string;
   featured?: boolean;
+  lastModified?: string;
 }
 
 const IMAGE_WIDTH = 800;
@@ -48,6 +49,7 @@ export const cars: Car[] = [
     price: "PKR 4,000/day",
     image: "/images/toyota_corolla.jpg",
     altText: "Toyota Corolla for rent in Karachi",
+    lastModified: "2026-08-15",
     featured: true,
   },
   {
@@ -62,6 +64,7 @@ export const cars: Car[] = [
     price: "PKR 5,000/day",
     image: "/images/honda_civic.jpg",
     altText: "Honda Civic for rent in Karachi",
+    lastModified: "2026-08-15",
     featured: true,
   },
   {
@@ -76,6 +79,7 @@ export const cars: Car[] = [
     price: "PKR 5,000/day",
     image: "/images/toyota_yaris.jpg",
     altText: "Toyota Yaris for rent in Karachi",
+    lastModified: "2026-08-15",
     featured: true,
   },
   {
@@ -90,6 +94,7 @@ export const cars: Car[] = [
     price: "PKR 9,000/day",
     image: "/images/toyota_hilux_revo.jpg",
     altText: "Toyota Hilux Revo for rent in Karachi",
+    lastModified: "2026-08-15",
     featured: true,
   },
   {
@@ -104,6 +109,7 @@ export const cars: Car[] = [
     price: "Ask Rates",
     image: "/images/land_cruiser.jpg",
     altText: "Land Cruiser V8 for rent in Karachi",
+    lastModified: "2026-08-15",
     featured: true,
   },
   {
@@ -118,6 +124,7 @@ export const cars: Car[] = [
     price: "Ask Rates",
     image: "/images/luxury_car.jpg",
     altText: "Luxury Mercedes Benz for rent in Karachi",
+    lastModified: "2026-08-15",
     featured: true,
   },
   {
@@ -132,6 +139,7 @@ export const cars: Car[] = [
     price: "PKR 12,000/day",
     image: "/images/toyota_fortuner.jpg",
     altText: "Toyota Fortuner for rent in Karachi",
+    lastModified: "2026-08-15",
   },
   {
     id: "suzuki-alto",
@@ -145,6 +153,7 @@ export const cars: Car[] = [
     price: "PKR 3,000/day",
     image: "/images/suzuki_alto.jpg",
     altText: "Suzuki Alto for rent in Karachi",
+    lastModified: "2026-08-15",
   },
   {
     id: "toyota-vitz",
@@ -158,6 +167,7 @@ export const cars: Car[] = [
     price: "PKR 4,000/day",
     image: "/images/toyota_vitz.jpg",
     altText: "Toyota Vitz rental car Karachi",
+    lastModified: "2026-08-15",
   },
   {
     id: "toyota-aqua",
@@ -171,6 +181,7 @@ export const cars: Car[] = [
     price: "PKR 4,500/day",
     image: "/images/toyota_aqua.jpg",
     altText: "Toyota Aqua hybrid car rental Karachi",
+    lastModified: "2026-08-15",
   },
   {
     id: "toyota-prius",
@@ -184,6 +195,7 @@ export const cars: Car[] = [
     price: "PKR 6,000/day",
     image: "/images/toyota_prius.jpg",
     altText: "Toyota Prius on rent Karachi Pakistan",
+    lastModified: "2026-08-15",
   },
   {
     id: "jac-t9",
@@ -197,6 +209,7 @@ export const cars: Car[] = [
     price: "PKR 15,000/day",
     image: "/images/jac_t9.jpg",
     altText: "JAC T9 pickup truck rental Karachi",
+    lastModified: "2026-08-15",
   }
 ];
 

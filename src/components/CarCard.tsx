@@ -70,10 +70,10 @@ export default function CarCard({ car }: CarCardProps) {
         {/* Actions */}
         <div className="flex gap-3">
           <Link
-            href="/contact"
+            href={`/fleet/${car.id}`}
             className="flex h-12 flex-1 items-center justify-center rounded-xl bg-white/10 border border-white/10 text-sm font-semibold text-white backdrop-blur-md transition-all hover:bg-white/20 hover:border-white/30"
           >
-            Inquire Now
+            View Details
           </Link>
           <a
             href={whatsappHref(

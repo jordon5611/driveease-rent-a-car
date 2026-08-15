@@ -130,8 +130,7 @@ export const cars: Car[] = [
     fuel: "Diesel",
     description: "A premium full size SUV offering comfort and power for family trips and corporate travel.",
     price: "PKR 12,000/day",
-    image: "https://images.unsplash.com/photo-1664783856972-ac9922d7b2d3",
-    focus: { y: 0.72 },
+    image: "/images/toyota_fortuner.jpg",
     altText: "Toyota Fortuner for rent in Karachi",
   },
   {
@@ -144,8 +143,7 @@ export const cars: Car[] = [
     fuel: "Petrol",
     description: "A compact and economical city car, perfect for budget friendly daily rentals in Karachi.",
     price: "PKR 3,000/day",
-    image: "https://images.unsplash.com/photo-1762944080822-ff6e79bb8099",
-    focus: { x: 0.8, y: 0.56, z: 2.2 },
+    image: "/images/suzuki_alto.jpg",
     altText: "Suzuki Alto for rent in Karachi",
   },
   {
@@ -158,7 +156,7 @@ export const cars: Car[] = [
     fuel: "Petrol",
     description: "A popular Japanese hatchback known for reliability, low fuel consumption and easy city driving.",
     price: "PKR 4,000/day",
-    image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d",
+    image: "/images/toyota_vitz.jpg",
     altText: "Toyota Vitz rental car Karachi",
   },
   {
@@ -171,8 +169,7 @@ export const cars: Car[] = [
     fuel: "Hybrid",
     description: "A fuel efficient hybrid vehicle that is gentle on your wallet and the environment.",
     price: "PKR 4,500/day",
-    image: "https://images.unsplash.com/photo-1551952237-954a0e68786c",
-    focus: { x: 0.72, y: 0.72, z: 2.1 },
+    image: "/images/toyota_aqua.jpg",
     altText: "Toyota Aqua hybrid car rental Karachi",
   },
   {
@@ -185,8 +182,7 @@ export const cars: Car[] = [
     fuel: "Hybrid",
     description: "The world renowned hybrid sedan offering exceptional fuel efficiency for long distance travel.",
     price: "PKR 6,000/day",
-    image: "https://images.unsplash.com/photo-1707050050343-352947150d4e",
-    focus: { x: 0.62, y: 0.62, z: 1.4 },
+    image: "/images/toyota_prius.jpg",
     altText: "Toyota Prius on rent Karachi Pakistan",
   },
   {
@@ -199,8 +195,7 @@ export const cars: Car[] = [
     fuel: "Petrol",
     description: "A rugged and capable pickup truck offering powerful performance, modern features and a commanding road presence.",
     price: "PKR 15,000/day",
-    image: "https://images.unsplash.com/photo-1714213624189-9a9fc8a0736a",
-    focus: { x: 0.45, y: 0.62, z: 1.5 },
+    image: "/images/jac_t9.jpg",
     altText: "JAC T9 pickup truck rental Karachi",
   }
 ];

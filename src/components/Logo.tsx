@@ -17,7 +17,7 @@ export default function Logo({ className }: LogoProps) {
     >
       <div className="relative h-12 w-48 transition-transform group-hover:scale-105">
         <Image
-          src="/logo.jpg"
+          src="/logo.png"
           alt={`${site.name} Logo`}
           fill
           className="object-contain"

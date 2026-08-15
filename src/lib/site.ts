@@ -13,6 +13,7 @@ export const site = {
   whatsappNumber: "923002589489",
   hours: "8:00 AM to 10:00 PM (Daily)",
   address: "Karachi, Sindh, Pakistan",
+  googleMapsUrl: "https://maps.app.goo.gl/keYNUWYUNwFVCuZb6",
   // Total vehicles on the road, per the owner. The cards on the site show one
   // entry per model; this figure counts every unit across those models.
   fleetSize: "120+",

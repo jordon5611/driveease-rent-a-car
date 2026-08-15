@@ -63,11 +63,11 @@ export const organizationSchema = {
       closes: "22:00",
     },
   ],
+  hasMap: site.googleMapsUrl,
   areaServed: serviceAreas.map((area) => ({
     "@type": "Place",
     name: `${area}, ${site.city}`,
   })),
-  hasMap: `https://maps.google.com/?q=${encodeURIComponent(site.address)}`,
   currenciesAccepted: "PKR",
   // Mirrors the visible Services section. Each entry stays price free because
   // rates are quoted per booking; inventing an Offer price would be false.

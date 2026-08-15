@@ -101,7 +101,14 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2.5">
                 <MapPin size={15} className="mt-0.5 shrink-0 text-brand-500" />
-                <span>{site.address}</span>
+                <a
+                  href={site.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-white"
+                >
+                  {site.address}
+                </a>
               </li>
             </ul>
           </div>

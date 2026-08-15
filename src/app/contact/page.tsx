@@ -148,9 +148,14 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="mt-6 flex h-44 items-center justify-center rounded-2xl border border-navy-200 bg-navy-100">
+              <a 
+                href={site.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-6 flex h-44 items-center justify-center rounded-2xl border border-navy-200 bg-navy-100 transition-colors hover:border-brand-500 hover:bg-white"
+              >
                 <div className="text-center">
-                  <MapPin size={28} className="mx-auto text-navy-400" />
+                  <MapPin size={28} className="mx-auto text-navy-400 transition-colors group-hover:text-brand-500" />
                   <p className="mt-2 text-sm font-medium text-navy-600">
                     {site.address}
                   </p>
@@ -158,7 +163,7 @@ export default function ContactPage() {
                     Serving all major areas of {site.city}
                   </p>
                 </div>
-              </div>
+              </a>
             </Reveal>
 
             <Reveal delay={100} className="lg:col-span-2">
